@@ -7,6 +7,7 @@
     <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
@@ -17,22 +18,40 @@
     const App = () =>{
 
         const [mejl, setMejl] = React.useState("");
+        const [pass, setPass] = React.useState("");
+        const [password, setPassword] = React.useState("");
+        const [schowek, setSchowek] = React.useState("");
+
+        const submit = (e) => {
+            console.log("xd")
+        
+            if(mejl.includes("@")){
+                if(pass==password){
+                    setSchowek(mejl)
+                }else{
+                    setSchowek("Wpisz hasło poprawnie  jedno i drugie takie samo")
+                }
+            }else{
+                setSchowek("Wpisz małego orangutana byku")
+            }
+        };
+
 
         return(
             <>
-             <form>
-                Rejestruj konto
-                Podaj e-mail:
-                <input type="text" placeholder="e-mail" onChange={(e)=>{console.log(e)}}/>
-                Podaj hasło:
-                <input type="password" placeholder="hasło"/>
-                Powtórz hasło:
-                <input type="password" placeholder="hasło" />
-
-                <button /*onClick*/>ZATWIERDŹ</button>
-                
-                <p></p>
-             </form>
+            <div class="holder">
+                <p class="mainHead">Rejestruj konto</p>
+            <div class="formDiv">
+                <p class="secHead">Podaj e-mail:</p>
+                    <input class="inp" type="text" placeholder="e-mail" onChange={(e)=>{setMejl(e.target.value)}}/>
+                <p class="secHead">Podaj hasło:</p>
+                    <input class="inp" type="password" placeholder="hasło" onChange={(e)=>{setPass(e.target.value)}}/>
+                <p class="secHead">Powtórz hasło:</p>
+                    <input class="inp" type="password" placeholder="hasło" onChange={(e)=>{setPassword(e.target.value)}}/>
+            </div>
+                <button class="btn" onClick={submit}>Zatwierdź</button>
+                <p>{schowek}</p> 
+            </div>
             </>
         )
     }
