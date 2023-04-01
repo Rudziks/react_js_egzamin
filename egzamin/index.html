@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=VT323' rel='stylesheet'>
     <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
+
 <body>
     <div id="root"></div>
 </body>
 <script type="text/babel">
 
-    const App = () =>{
+    const App = () => {
 
         const [mejl, setMejl] = React.useState("");
         const [pass, setPass] = React.useState("");
@@ -24,34 +27,34 @@
 
         const submit = (e) => {
             console.log("xd")
-        
-            if(mejl.includes("@")){
-                if(pass==password){
+
+            if (mejl.includes("@")) {
+                if (pass == password) {
                     setSchowek(mejl)
-                }else{
-                    setSchowek("Wpisz hasło poprawnie  jedno i drugie takie samo")
+                } else {
+                    setSchowek(<p style={{ color: "red", textTransform: "upperCase" }}>Hasła muszą być takie same!</p>)
                 }
-            }else{
-                setSchowek("Wpisz małego orangutana byku")
+            } else {
+                setSchowek(<p style={{ color: "red", textTransform: "upperCase" }}>użyj znaku "@"</p>)
             }
         };
 
 
-        return(
+        return (
             <>
-            <div class="holder">
-                <p class="mainHead">Rejestruj konto</p>
-            <div class="formDiv">
-                <p class="secHead">Podaj e-mail:</p>
-                    <input class="inp" type="text" placeholder="e-mail" onChange={(e)=>{setMejl(e.target.value)}}/>
-                <p class="secHead">Podaj hasło:</p>
-                    <input class="inp" type="password" placeholder="hasło" onChange={(e)=>{setPass(e.target.value)}}/>
-                <p class="secHead">Powtórz hasło:</p>
-                    <input class="inp" type="password" placeholder="hasło" onChange={(e)=>{setPassword(e.target.value)}}/>
-            </div>
-                <button class="btn" onClick={submit}>Zatwierdź</button>
-                <p>{schowek}</p> 
-            </div>
+                <div class="holder">
+                    <p class="mainHead">Rejestruj konto</p>
+                    <div class="formDiv">
+                        <p class="secHead">Podaj e-mail:</p>
+                        <input class="inp" placeholder="email@example.pl" type="text" onChange={(e) => { setMejl(e.target.value) }} />
+                        <p class="secHead">Podaj hasło:</p>
+                        <input class="inp" type="password" placeholder="password" onChange={(e) => { setPass(e.target.value) }} />
+                        <p class="secHead">Powtórz hasło:</p>
+                        <input class="inp" type="password" placeholder="password" onChange={(e) => { setPassword(e.target.value) }} />
+                    </div>
+                    <button class="btn" onClick={submit}>Zatwierdź</button>
+                    <p class="pHold">{schowek}</p>
+                </div>
             </>
         )
     }
@@ -59,11 +62,12 @@
 
 
 
-   const root =  ReactDOM.createRoot(document.getElementById('root'));
-   root.render(<App /> )
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />)
 
 
 </script>
+
 </html>
 
 <!-- przez target lece do value -->
