@@ -9,13 +9,12 @@ body {
     padding: 0px;
     background-image: url(/xdimgbackg.jpeg);
     background-repeat: no-repeat;
-    /* background-size: cover; */
     background-size: auto;
 }
 
 .holder{
     margin: auto;
-    margin-top: 1rem;
+    margin-top: 1.9rem;
     width: 25rem;
     height: 33rem;
     border: 2px solid rgba(255, 255, 255, 0.562);
@@ -23,6 +22,7 @@ body {
     align-items: center;
     text-shadow: 0.04em 0.04em #fc0049, 0.08em 0.08em #fe8f01,
     0.12em 0.12em #fdf21f, 0.16em 0.16em #3fdf4b, 0.2em 0.2em #3462fe;
+    box-shadow: 2px 2px 10px white;
     transition: 0.8s ease-out;
 }
 
@@ -48,7 +48,7 @@ body {
     margin-top: 2rem;
     margin-left: 5rem;
     color: white;
-    font-size: 25px;
+    font-size: 22px;
     text-transform: uppercase;
     text-shadow: 5px 5px 2px black;
     letter-spacing: 3px;
@@ -56,7 +56,7 @@ body {
 
 .inp {
     margin-top: 0.4rem;
-    margin-left: 5rem;
+    margin-left: 4.7rem;
     width: 15rem;
     height: 1.5rem;
     background-color: transparent;
@@ -68,6 +68,7 @@ body {
     border-bottom: 2px solid transparent;
     border-image: linear-gradient(0.25turn, rgb(250, 0, 0), rgb(250, 143, 3), rgb(255, 230, 0));
     border-image-slice: 1;
+    padding: 5px;
 }
 
 .btn {
@@ -94,11 +95,10 @@ body {
 }
 
 .holder:hover{
-    box-shadow: 5px 5px 300px white;
+    box-shadow: 5px 5px 120px rgba(255, 255, 255, 0.753);
     backdrop-filter: blur(5px);
     transition: 1,5s;
 }
-
 
 .secHead:hover{
     text-shadow: 4px 5px 5px black;
@@ -106,10 +106,19 @@ body {
 
 .inp:hover{
     border-bottom: 2px solid transparent;
-    border-image: linear-gradient(0.25turn,  #ffffff, #3462fe, #8201fc);
+    border-image: linear-gradient(0.25turn,  rgb(255,230,0), rgb(152,251,152), #8201fc);
     border-image-slice: 1;
-    text-shadow: 2px 2px 5px black;
+    /* border-image: linear-gradient(0.25turn, rgb(255, 230, 0)), rgb(152,251,152), rgba(254, 255, 254, 0.253); */
+    border-image-slice: 1;
     transition: 1s;
+}
+
+.inp::placeholder{
+    text-shadow: 3px 3px black;
+}
+
+.inp:hover::placeholder{
+    color: rgb(152,251,152);
 }
 
 .btn:hover{
